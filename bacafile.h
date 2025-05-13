@@ -15,7 +15,7 @@ struct City {
 };
 
 vector<City> readFile(string filename, int k);
-vector<City> getData((string dataRaw);
+vector<City> getData(string dataRaw);
 
 
 #endif // BACAFILE_H
