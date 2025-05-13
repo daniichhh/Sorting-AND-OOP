@@ -2,13 +2,12 @@
 #include <string>
 #include <vector>
 #include "sorter.h"
-#include "bacafile.h"
 using namespace std;
 
 int main() {
-    string files = "worldcities.csv";
-
-
+	string files = "worldcities.csv";
+	Sorter::cities = readFile(files, 1000);
+		
     while (true) {
         string command;
         cout << " . / citysort ";
@@ -42,7 +41,7 @@ int main() {
 
         string algo = must[0];
         string key = must[1];
-        int n = 10;
+        int n;
         bool reverse = false;
 
         for (string opt : optional) {
@@ -56,19 +55,28 @@ int main() {
             }
         }
 
-        //Sorter::sort(algo, key, n); ini tergantung algoritma sorternya sih
+        Sorter* sorter = nullptr;
+        if (algo == "merge") {
+        	sorter = new MergeSorter();
+		} else if (algo == "selection") {
+			sorter = new SelectionSorter();
+		} else if (algo == "quick") {
+			sorter = new QuickSorter();
+		} else if (algo == "bubble") {
+			sorter = new BubbleSorter();
+		}
+        
+        sorter->sort(key, n);
 
-        if (reverse) {
-            for (int i = n - 1; i >= 0; i--) {
-                City& city = cities[i];
-                cout << cities[i].name << endl;
-            }
-        } else {
-            for (int i = 0; i < n; i++) {
-                cout << cities[i].name << endl;
-            }
-        }
-    }
-
+		if (reverse) {
+    		for (int i = n - 1; i >= 0; i--) {
+        		cout << Sorter::cities[i].name << endl;
+    		}
+		} else {
+    		for (int i = 0; i < n; i++) {
+        		cout << Sorter::cities[i].name << endl;
+    		}
+		}
+	}
     return 0;
 }
