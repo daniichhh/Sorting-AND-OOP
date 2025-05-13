@@ -2,6 +2,10 @@
 #define BACAFILE_H
 #include <string>
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <cctype>
+#include <algorithm>
 using namespace std;
 
 struct City {
