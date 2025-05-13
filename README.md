@@ -30,3 +30,6 @@ Gunakan command `-a <algo> -k <key> [-r] [-n N]` untuk melakukan sorting pada da
 
 **command [-n N]**
 [-n N] untuk melakukan print data yang sudah di-sortir sebanyak N baris
+
+**Contoh Penggunaan:**
+`-a <merge> -k <population> [-r] [-n 10000]`
