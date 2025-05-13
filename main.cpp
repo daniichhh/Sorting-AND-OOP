@@ -54,8 +54,6 @@ int main() {
                 continue;
             }
         }
-        
-        cout << n << endl;
 
         Sorter* sorter = nullptr;
         if (algo == "merge") {
