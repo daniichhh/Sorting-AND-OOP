@@ -47,13 +47,15 @@ int main() {
         for (string opt : optional) {
             if (opt == "-r") {
                 reverse = true;
-            } else if (opt.substr(0, 2) == "-n ") {
+            } else if (opt.substr(0, 3) == "-n ") {
                 string numStr = opt.substr(3);
                 n = stoi(numStr);
             } else {
                 continue;
             }
         }
+        
+        cout << n << endl;
 
         Sorter* sorter = nullptr;
         if (algo == "merge") {
